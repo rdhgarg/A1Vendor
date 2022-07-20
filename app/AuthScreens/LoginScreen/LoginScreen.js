@@ -10,6 +10,7 @@ import {
   DeviceEventEmitter,
   SafeAreaView,
   Keyboard,
+  BackHandler
 } from 'react-native';
 import {images} from '../../Assets/imagesUrl';
 import fonts from '../../Assets/fonts';
@@ -41,8 +42,35 @@ export default class LoginScreen extends React.Component {
 
       // alert('Imran khan- ' + screenData)
     });
-  }
+    this.backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      this.backAction
+    );
+}
 
+
+
+backAction = () => {
+  if (Platform.OS == "ios") {
+  //   console.log("IPHONE");
+  //   Alert.alert("Hold on!", "Are you sure you want to close app?", [
+      
+  
+     BackHandler.exitApp() 
+  //   ]);
+    return true;
+  } else {
+  
+       BackHandler.exitApp() 
+ 
+    return true;
+  }
+};
+
+
+componentWillUnmount() {
+  this.backHandler.remove();
+}
   goToForgotPass() {
     this.props.navigation.navigate('ForgotPasswordScreen');
   }
@@ -99,6 +127,11 @@ export default class LoginScreen extends React.Component {
           Helper.setData('HideWelcomeScreen', 'done');
           this.props.navigation.navigate('Home');
           DeviceEventEmitter.emit('LOGIN', 'done');
+          this.setState({
+            vendor_id:"",
+            mobile_number:"",
+            password:""
+          })
           //  handleNavigation({ type: 'setRoot', page: 'BottomTab', navigation: this.props.navigation })
         } else {
           Helper.showToast(response.message);

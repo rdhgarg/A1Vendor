@@ -87,7 +87,7 @@ function Routes() {
         <Stack.Screen
           name="LoginScreen"
           component={LoginScreen}
-          options={{ headerShown: false }}
+          options={{headerShown: false,gestureEnabled: false}}
         />
 
         <Stack.Screen

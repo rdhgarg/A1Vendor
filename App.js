@@ -4,6 +4,8 @@ import { View } from 'react-native';
 import Routes from './app/navigation/Routes';
 import ActivityIndicatorApp from './app/config/ActivityIndicatorApp'
 import RemotePushController from './app/config/RemotePushController'
+import FlashMessage from "react-native-flash-message";
+
 
 export default class App extends React.Component {
   render() {
@@ -14,6 +16,12 @@ export default class App extends React.Component {
         <Routes />
         <RemotePushController />
         <ActivityIndicatorApp />
+        <FlashMessage
+          position="bottom"
+          floating
+          icon={{ icon: "auto", position: "left" }}
+          style={{  marginBottom: "10%",backgroundColor:"#000" }}
+        />
       </View>
     )
   }

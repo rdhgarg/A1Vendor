@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         // textAlign:'center',
         height: 50,
+        // marginLeft:"-7%"
         // marginTop:"2%"
        
     },
