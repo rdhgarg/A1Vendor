@@ -212,12 +212,21 @@ export default class Home extends React.Component {
             </View>
             <View style={{flexDirection: 'row', flex: 1}}>
               <Text style={{fontSize: 12, fontWeight: 'bold', flex: 0.7}}>
+                Booking Id:
+              </Text>
+              <Text style={{fontSize: 12, flex: 1}}>
+              {item?.booking_id}
+              </Text>
+            </View>
+            <View style={{flexDirection: 'row', flex: 1}}>
+              <Text style={{fontSize: 12, fontWeight: 'bold', flex: 0.7}}>
                 Service Date:
               </Text>
               <Text style={{fontSize: 12, flex: 1}}>
                 {moment(item.delivery_date).format('DD-MM-YYYY')}
               </Text>
             </View>
+            
             <View style={{flexDirection: 'row', flex: 1}}>
               <Text style={{fontSize: 12, fontWeight: 'bold', flex: 0.7}}>
                 Service Time:
