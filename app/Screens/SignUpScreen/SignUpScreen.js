@@ -101,7 +101,9 @@ export default class SignUpScreen extends React.Component {
         Helper.globalLoader.hideLoader();
         console.log('myService ----------', response.data);
         if (response.status == true) {
-          this.setState({arrCountry: response.data});
+          this.setState({
+            // arrCountry:[0,"select country"],
+            arrCountry: response.data});
         } else {
         }
       })
